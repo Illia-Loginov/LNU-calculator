@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script defer src="./script.js"></script>
+  </head>
+  <body>
+    <form class="form">
+      <input type="text" id="input" class="form__element input" />
+      
+      <output id="error" class="form__element output"></output>
+      
+      <button id="key-equals" class="key form__element button" onclick="outputResult(event)">=</button>
+      <output id="result" class="form__element output"></output>
+      
+      <button id="key-AC" class="key form__element button" onclick="allClear(event)">AC</button>
+      <button id="key-BS" class="key form__element button" onclick="backSpace(event)">BS</button>
+      <button id="key-op" class="key form__element button" onclick="btnInput(event)">(</button>
+      <button id="key-cp" class="key form__element button" onclick="btnInput(event)">)</button>
+
+      <button id="key-7" class="key form__element button" onclick="btnInput(event)">7</button>
+      <button id="key-8" class="key form__element button" onclick="btnInput(event)">8</button>
+      <button id="key-9" class="key form__element button" onclick="btnInput(event)">9</button>
+      <button id="key-divide" class="key form__element button" onclick="btnInput(event)">/</button>
+
+      <button id="key-4" class="key form__element button" onclick="btnInput(event)">4</button>
+      <button id="key-5" class="key form__element button" onclick="btnInput(event)">5</button>
+      <button id="key-6" class="key form__element button" onclick="btnInput(event)">6</button>
+      <button id="key-multiply" class="key form__element button" onclick="btnInput(event)">*</button>
+
+      <button id="key-1" class="key form__element button" onclick="btnInput(event)">1</button>
+      <button id="key-2" class="key form__element button" onclick="btnInput(event)">2</button>
+      <button id="key-3" class="key form__element button" onclick="btnInput(event)">3</button>
+      <button id="key-subtract" class="key form__element button" onclick="btnInput(event)">-</button>
+
+      <button id="key-0" class="key form__element button" onclick="btnInput(event)">0</button>
+      <button id="key-dot" class="key form__element button" onclick="btnInput(event)">.</button>
+      <button id="key-add" class="key form__element button" onclick="btnInput(event)">+</button>
+      </div>
+    </form>
+  </body>
+</html>
