@@ -118,13 +118,14 @@ const resultOutput = document.querySelector('#result');
 const outputResult = (e) => {
   e.preventDefault();
 
-  errorOutput.value = '';
-
   try {
     const result = processExpression(input.value);
+
+    errorOutput.value = '';
     resultOutput.value = result;
   } catch (error) {
     errorOutput.value = error.message;
+    resultOutput.value = '';
   }
 };
 
