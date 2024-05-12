@@ -11,7 +11,9 @@ const parseNumber = (input) => {
 };
 
 const processBasicArithmeticExpression = (input) => {
-  const elements = input.split(/(\+|\-|\*|\/)/).filter((e) => e.trim() !== '');
+  const elements = input
+    .split(/(\+|\-|\*|\/|\^)/)
+    .filter((e) => e.trim() !== '');
 
   if (elements[0] === '-') {
     elements[1] = `-${elements[1]}`;
@@ -24,6 +26,14 @@ const processBasicArithmeticExpression = (input) => {
 
   for (let index = 0; index < elements.length; index += 2) {
     elements[index] = parseNumber(elements[index]);
+  }
+
+  for (let index = 1; index < elements.length; index += 2) {
+    if (elements[index] === '^') {
+      const result = elements[index - 1] ** elements[index + 1];
+      elements.splice(index - 1, 3, result);
+      index -= 2;
+    }
   }
 
   for (let index = 1; index < elements.length; index += 2) {
@@ -108,7 +118,7 @@ const processParentheses = (input) => {
 const processExpression = (input) => {
   const expression = input.replace(/\s/g, '').replace(/,/, '.');
 
-  if (!/^[0-9\(\)\+\-\*\/\.]+$/.test(expression)) {
+  if (!/^[0-9\(\)\+\-\*\/\.\^]+$/.test(expression)) {
     throw new Error(`Invalid character(s)`);
   }
 
