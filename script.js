@@ -32,6 +32,10 @@ const processBasicArithmeticExpression = (input) => {
       elements.splice(index - 1, 3, result);
       index -= 2;
     } else if (elements[index] === '/') {
+      if (elements[index + 1] === 0) {
+        throw new Error(`Can't divide by 0`);
+      }
+
       const result = elements[index - 1] / elements[index + 1];
       elements.splice(index - 1, 3, result);
       index -= 2;
